@@ -1,0 +1,34 @@
+﻿using UnityEngine;
+using System.Collections;
+using UnityEditor;
+using UnityEditor.Graphs.AnimationStateMachine;
+
+[CustomEditor(typeof(MyPlayer))]
+public class OneInspectorTool : Editor
+{
+    private SerializedProperty damageProperty;
+    private SerializedProperty armorProperty;
+    private SerializedProperty gunProperty;
+
+    private void OnEnable()
+    {
+        damageProperty = serializedObject.FindProperty("damage");
+    }
+
+    public override void OnInspectorGUI()
+    {
+        EditorGUILayout.IntSlider(damageProperty, 0, 100, new GUIContent("Damage"));
+        if (!damageProperty.hasMultipleDifferentValues)
+        {
+            ProgressBar(damageProperty.intValue / 100.0f, "Damage");
+        }
+    }
+
+    void ProgressBar(float value, string label)
+    {
+        Rect rect = GUILayoutUtility.GetRect(18, 18, "TextField");
+        EditorGUI.ProgressBar(rect, value, label);
+        EditorGUILayout.Space();
+    }
+	
+}
