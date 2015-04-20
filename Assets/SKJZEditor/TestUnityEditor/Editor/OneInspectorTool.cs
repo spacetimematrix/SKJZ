@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
-using UnityEditor.Graphs.AnimationStateMachine;
 
 [CustomEditor(typeof(MyPlayer))]
+
+
+//对某自定义组件进行观察的Inspector窗口，可以从它派生
 public class OneInspectorTool : Editor
 {
     private SerializedProperty damageProperty;

@@ -6,16 +6,20 @@ using System.Collections;
 
 public class MeshTest : MonoBehaviour 
 {
+    public Texture2D texture2d;
+
 	void Start () 
     {
         PlaneData planeData = new PlaneData();
-        planeData.Width = 50;
-        planeData.Hight = 50;
-        planeData.widthSegments = 100;
-        planeData.hightSegments = 100;
+        planeData.Width = 5.12f;
+        planeData.Hight = 2.56f;
+        planeData.widthSegments = 50;
+        planeData.hightSegments = 50;
         planeData.PlaneName = "onePlane";
 
         Plane plane = new Plane(planeData);
+        plane.PlaneGameobject.GetComponent<MeshRenderer>().material.mainTexture = texture2d;
+        plane.PlaneGameobject.AddComponent<PageCurl>();
 	}
 
 
@@ -215,7 +219,7 @@ public class Plane
         MeshRenderer meshRender = meshObj.AddComponent<MeshRenderer>();
 
         //设置一个shader
-        meshRender.material = new Material(Shader.Find("Unlit/Color"));
+        meshRender.material = new Material(Shader.Find("Sprites/Default"));
 
         //创建一个Mesh
         Mesh mesh = new Mesh();
@@ -228,4 +232,5 @@ public class Plane
 
         return meshObj;
     }
+
 }

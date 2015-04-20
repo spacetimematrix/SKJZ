@@ -2,6 +2,8 @@
 using System.Collections;
 using UnityEditor;
 
+
+//最常见的小功能扩展，一般不用窗口的编辑扩展，可以从这个类中继承，如以下代码所示：
 public class AddChildTool : ScriptableObject
 {
     /*
