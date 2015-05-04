@@ -6,7 +6,7 @@ using System;
 public class TableMgr : Singleton<TableMgr>
 {
     public Action InitFinishCallback;
+    public int I = 1;
 
-
-
+    public TableMgr() { }
 }

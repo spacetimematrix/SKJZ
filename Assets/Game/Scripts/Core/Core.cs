@@ -11,7 +11,7 @@ namespace SKJZ
         /// 单例
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        public class Singleton<T> where T : new()
+        public class Singleton<T>  where T : new()
         {
             protected static T _instance;
             private static readonly object _lockObj;
